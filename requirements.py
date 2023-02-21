@@ -1,3 +1,0 @@
-Flask
-cmd2
-pymetasploit3

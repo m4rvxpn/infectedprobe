@@ -1,6 +1,8 @@
 # InfectedProbe
 InfectedProbe a powerful tool for security professionals to automate and streamline their penetration testing workflow. By using this package, you can save time and effort, and focus on the more important aspects of your work, such as analyzing and interpreting the results. InfectedProbe is capable of probing networks to identify vulnerabilities and weaknesses. 
 
+It consists of a Python CLI that leverages masscan and nmap for network scanning, and Metasploit for exploit testing. The tool also includes a Flask-based RESTful API for managing workspaces and generating reports. The results are stored in an SQLite database for easy retrieval and analysis. InfectedProbe is designed for penetration testing and can help identify network vulnerabilities before an attacker exploits them.
+
 
 
 ## Getting started
