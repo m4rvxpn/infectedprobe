@@ -6,31 +6,34 @@ cli = MyCLI()
 
 @app.route("/api/workspaces", methods=["GET"])
 def list_workspaces():
-    # Code to list workspaces from SQLite database.
-    workspaces = []
+    workspaces = cli.do_list_workspaces("")
     return jsonify(workspaces)
 
 @app.route("/api/workspaces/<workspace>", methods=["GET"])
 def get_workspace(workspace):
-    # Code to get workspace data from SQLite database.
-    workspace_data = {}
+    workspace_data = cli.do_get_workspace(workspace)
     return jsonify(workspace_data)
 
 @app.route("/api/workspaces/<workspace>/scan", methods=["POST"])
 def scan(workspace):
-    # Code to run scans and input data to Metasploit database.
+    target = request.json.get("target")
+    if not target:
+        return jsonify({"error": "Target is missing."}), 400
+
+    cli.do_set_workspace(workspace)
+    cli.do_scan(target)
+
     return jsonify({"status": "success"})
 
 @app.route("/api/workspaces/<workspace>/results", methods=["GET"])
 def list_results(workspace):
-    # Code to list scan results from SQLite database.
-    results = []
+    results = cli.do_list_results("")
     return jsonify(results)
 
 @app.route("/api/workspaces/<workspace>/report", methods=["GET"])
 def generate_report(workspace):
-    # Code to generate a report in HTML, CSV, or JSON format.
-    report = ""
+    format = request.args.get("format", "html")
+    report = cli.do_generate_report(f"{workspace} -f {format}")
     return report
 
 if __name__ == "__main__":
