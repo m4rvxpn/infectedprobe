@@ -1,5 +1,5 @@
 # InfectedProbe
-InfectedProbe is capable of probing networks to identify vulnerabilities and weaknesses.
+InfectedProbe a powerful tool for security professionals to automate and streamline their penetration testing workflow. By using this package, you can save time and effort, and focus on the more important aspects of your work, such as analyzing and interpreting the results. InfectedProbe is capable of probing networks to identify vulnerabilities and weaknesses. 
 
 
 
